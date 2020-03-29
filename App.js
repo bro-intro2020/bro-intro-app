@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React from 'react';
+import React, {Component} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -15,7 +15,6 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
 import {
   Header,
   LearnMoreLinks,
@@ -23,54 +22,25 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {Scene, Router} from 'react-native-router-flux'
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  );
-};
+import Login from "./src/page/login"
+import Home from "./src/page/appHome"
+const TAG = "bro-app";
+class App extends Component {
+    constructor(props) {
+        console.log(TAG, 'app startup: constructor');
+        super(props);
+    }
+    render() {
+      return <Router>
+        <Scene key="root">
+          <Scene key="login" component={Login} title="Login"/>
+          <Scene key="home" component={Home} initial={true}/>
+        </Scene>
+      </Router>
+    }
+  }
 
 const styles = StyleSheet.create({
   scrollView: {
