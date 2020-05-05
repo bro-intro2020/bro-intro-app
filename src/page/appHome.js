@@ -21,7 +21,7 @@ export default class AppHome extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>生活艹了所有人，没有人可以明哲保身</Text>
+                <Text>  生活艹了所有人，没有人可以明哲保身</Text>
             </View>
         );
 	}
