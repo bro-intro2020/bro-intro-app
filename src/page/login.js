@@ -21,7 +21,8 @@ export default class Login extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Login</Text>
+                <Text>谁来了？ 谁来了？</Text>
+                <Text>我来了！ 我来了！</Text>
             </View>
         );
 	}
@@ -30,6 +31,8 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#af6f38'
+        backgroundColor: '#af6f38',
+		justifyContent: 'center',
+        alignItems: 'center'
 	},
 })
